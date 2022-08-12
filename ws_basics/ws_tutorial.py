@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 
-with open('index.html', 'r') as html_file:
+with open('ws_basics/index.html', 'r') as html_file:
     content = html_file.read()
 
     soup = BeautifulSoup(content, 'lxml')
@@ -26,4 +26,11 @@ with open('index.html', 'r') as html_file:
     question = blurb_div.p.text
 
     print(f'{intro}, {question}')
+
+    # ---------------------------
+    print('---------------------', end = '\n\n')
+
+    name = soup.find_all(text = "Hi there, I'm Paul")
+    parent = name[0].parent
+    print(parent.text)
 
